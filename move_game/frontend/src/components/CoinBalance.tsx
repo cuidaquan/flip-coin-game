@@ -64,32 +64,36 @@ const CoinBalance: React.FC<CoinBalanceProps> = ({ suiClient, onMint, refreshTri
       flexDirection: isMobile ? 'column' : 'row',
       marginRight: isMobile ? '0' : '20px'
     }}>
-      <span style={{ 
-        color: 'white', 
-        fontSize: isMobile ? '12px' : '16px',
-        whiteSpace: 'nowrap',
-        fontWeight: isMobile ? 'normal' : 'bold',
-        textShadow: isMobile ? 'none' : '0 1px 2px rgba(0, 0, 0, 0.3)'
-      }}>
-        余额: {balance} CDQ
-      </span>
-      <Button 
-        type="primary" 
-        onClick={onMint}
-        loading={loading}
-        size={isMobile ? 'small' : 'middle'}
-        style={{
-          height: isMobile ? '24px' : '38px',
-          fontSize: isMobile ? '12px' : '14px',
-          padding: isMobile ? '0 10px' : '4px 20px',
-          borderRadius: '6px',
-          background: isMobile ? undefined : 'linear-gradient(to right, #1890ff, #36cfc9)',
-          border: isMobile ? undefined : 'none',
-          boxShadow: isMobile ? undefined : '0 2px 6px rgba(24, 144, 255, 0.3)'
-        }}
-      >
-        铸造
-      </Button>
+      {currentAccount && (
+        <>
+          <span style={{ 
+            color: 'white', 
+            fontSize: isMobile ? '12px' : '16px',
+            whiteSpace: 'nowrap',
+            fontWeight: isMobile ? 'normal' : 'bold',
+            textShadow: isMobile ? 'none' : '0 1px 2px rgba(0, 0, 0, 0.3)'
+          }}>
+            余额: {balance} CDQ
+          </span>
+          <Button 
+            type="primary" 
+            onClick={onMint}
+            loading={loading}
+            size={isMobile ? 'small' : 'middle'}
+            style={{
+              height: isMobile ? '24px' : '38px',
+              fontSize: isMobile ? '12px' : '14px',
+              padding: isMobile ? '0 10px' : '4px 20px',
+              borderRadius: '6px',
+              background: isMobile ? undefined : 'linear-gradient(to right, #1890ff, #36cfc9)',
+              border: isMobile ? undefined : 'none',
+              boxShadow: isMobile ? undefined : '0 2px 6px rgba(24, 144, 255, 0.3)'
+            }}
+          >
+            铸造
+          </Button>
+        </>
+      )}
     </div>
   );
 };
